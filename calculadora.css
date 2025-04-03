@@ -1,30 +1,80 @@
-#calculadora {
-    width: 25rem;
+body {
+    background-color: #222;
+  }
+  
+  #calculadora {
+    width: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    color: #e68900;
   }
   
   #calculadora .card-header {
-    background-color: black;
-  }
-  
-  #calculadora .card-body {
-    background-color: #994522;
+    background: #1e1e1e;
+    padding: 15px;
   }
   
   #calculadora #display {
-    text-align: right;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
-    font-size: 30pt;
-    color: white;
+    font-size: 32px;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+  }
+  
+  #calculadora .card-body {
+    background-color: #2a2a2a;
+    padding: 15px;
   }
   
   #calculadora button {
+    width: 100%;
+    height: 60px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    transition: 0.2s;
     margin: 5px;
-    height: 3em;
   }
   
-  #calculadora .button-text {
-    font-family: 'Helvetica', 'Arial', sans-serif;
+  #calculadora .btn-dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  #calculadora .btn-dark:hover {
+    background-color: #444;
+  }
+  
+  #calculadora .btn-warning {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  #calculadora .btn-warning:hover {
+    background-color: #e68900;
+  }
+  
+  #calculadora .btn-secondary {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  #calculadora .btn-secondary:hover {
+    background-color: #d32f2f;
+  }
+  html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222; 
+  }
+  h1 {
+    color: #ff9800; 
+    text-align: center;
     font-weight: bold;
-    font-size: 16pt;
+    margin-bottom: 20px;
   }
