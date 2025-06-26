@@ -136,7 +136,7 @@ const calcula = () => {
   if (operacaoPendente != null) {
     let resultado;
 
-    // Verifica qual operação realizar
+   
     switch (operacaoPendente) {
       case '+':
         resultado = valorAnterior + valorAtual();
@@ -152,16 +152,16 @@ const calcula = () => {
         break;
     }
 
-    // Atualiza o valor exibido convertendo para string com vírgula
+    
     sValor = resultado.toString().replace('.', ',');
   }
 
-  // Prepara para digitar um novo número
+
   ehNovoNumero = true;
-  // Limpa a operação pendente
+
   operacaoPendente = null;
-  // Zera o valor anterior acumulado
+
   valorAnterior = 0;
-  // Atualiza o visor com o resultado final
+  
   atualizaVisor();
 };

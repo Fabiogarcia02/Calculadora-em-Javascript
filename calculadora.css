@@ -1,80 +1,203 @@
-body {
-    background-color: #222;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #1f1c2c, #928DAB, #1f1c2c, #000000);
+  background-size: 400% 400%;
+  animation: fundoAnimado 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+@keyframes fundoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  animation: surgir 1s ease-in-out;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
   }
-  
-  #calculadora {
-    width: 320px;
-    border-radius: 15px;
-    overflow: hidden;
-    color: #e68900;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-  
-  #calculadora .card-header {
-    background: #1e1e1e;
-    padding: 15px;
+}
+
+h1 {
+  color: #ffa726;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 34px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+#calculadora {
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  min-width: 340px; /* 🔥 ADICIONE ESTA LINHA */
+}
+
+
+
+
+#display {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(44, 44, 44, 0.9);
+  border-radius: 15px;
+  padding: 18px;
+  text-align: right;
+  margin-bottom: 20px;
+  min-height: 60px;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.6),
+              inset -3px -3px 8px rgba(255, 255, 255, 0.03);
+}
+
+
+.botoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+
+.botoes button {
+  width: 100%;
+  height: 60px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  background: #2e2e2e;
+  color: #f1f1f1;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.botoes button:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+.botoes button:active {
+  transform: scale(0.95);
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+.botoes button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.botoes button:hover::before {
+  opacity: 1;
+  animation: brilho 0.8s linear forwards;
+}
+
+@keyframes brilho {
+  from {
+    transform: rotate(45deg) translateX(-100%);
   }
-  
-  #calculadora #display {
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    font-size: 32px;
-    color: #fff;
-    text-align: right;
-    padding-right: 10px;
+  to {
+    transform: rotate(45deg) translateX(100%);
   }
-  
-  #calculadora .card-body {
-    background-color: #2a2a2a;
-    padding: 15px;
+}
+
+#bt-divide,
+#bt-times,
+#bt-minus,
+#bt-plus {
+  background: #ffa726;
+  color: #000;
+}
+
+#bt-divide:hover,
+#bt-times:hover,
+#bt-minus:hover,
+#bt-plus:hover {
+  background: #fb8c00;
+}
+
+
+#bt-0.zero {
+  grid-column: span 2;
+}
+
+#bt-comma {
+  background: #3a3a3a;
+}
+
+#bt-comma:hover {
+  background: #505050;
+}
+
+#bt-ac {
+  background: #e53935;
+  color: white;
+  grid-column: span 2;
+}
+
+#bt-ac:hover {
+  background: #c62828;
+}
+
+#bt-equals {
+  background: #43a047;
+  color: white;
+  grid-column: span 2;
+}
+
+#bt-equals:hover {
+  background: #388e3c;
+}
+
+
+@media (max-width: 420px) {
+  .botoes button {
+    height: 55px;
+    font-size: 20px;
   }
-  
-  #calculadora button {
-    width: 100%;
-    height: 60px;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    transition: 0.2s;
-    margin: 5px;
+
+  #display {
+    font-size: 30px;
+    padding: 16px;
   }
-  
-  #calculadora .btn-dark {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  #calculadora .btn-dark:hover {
-    background-color: #444;
-  }
-  
-  #calculadora .btn-warning {
-    background-color: #ff9800;
-    color: white;
-  }
-  
-  #calculadora .btn-warning:hover {
-    background-color: #e68900;
-  }
-  
-  #calculadora .btn-secondary {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  #calculadora .btn-secondary:hover {
-    background-color: #d32f2f;
-  }
-  html, body {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #222; 
-  }
+
   h1 {
-    color: #ff9800; 
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 28px;
   }
+}
